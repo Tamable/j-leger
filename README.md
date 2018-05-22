@@ -27,7 +27,7 @@ j-léger is a JavaScript library inspired by jQuery for handling events, manipul
 ### on
 ### off
 
-## Traversal methods
+## Traversal
 
 ### children
 ### parent
