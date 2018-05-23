@@ -1,14 +1,14 @@
 # j-léger
-Welcome to j-léger, a DOM manipulation library written in plain vanilla JavaScript
+Welcome to j-léger, a DOM manipulation library written in plain vanilla JavaScript!
 
 **Live (TBD)**
 
-j-léger is a JavaScript library inspired by jQuery for handling events, manipulating the DOM, and making ajax requests. Its functions enable users to do the following:
+j-léger is a JavaScript library inspired by jQuery for handling events, manipulating the DOM, and making AJAX requests. Its functions enable users to do the following:
 
 * Traverse and manipulate the DOM;
 * Add and remove event handlers to DOM nodes / HTML elements;
 * Queue up callback functions to be executed after the HTML has finished rendering; and
-* Perform simple HTTP (ajax) requests.
+* Perform simple HTTP (AJAX) requests.
 
 ## Core function
 
