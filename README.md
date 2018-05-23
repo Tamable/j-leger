@@ -70,10 +70,10 @@ Receives one options object argument. Merges the options onto the pre-defined de
 Defaults are set as follows. The options object may contain any of the attributes below.
 
 `{
-  success: () => {},
-  error: () => {},
-  url: "",
-  method: 'GET',
-  data: {},
-  contentType: 'application/x-www-form-urlencoded; charset=UTF-8'
+  success: () => {},       
+  error: () => {},      
+  url: "",      
+  method: 'GET',     
+  data: {},       
+  contentType: 'application/x-www-form-urlencoded; charset=UTF-8'      
 }`
