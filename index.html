@@ -1,20 +1,147 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <title>jQuery léger</title>
+    <title>Task Manager (j-léger demo)</title>
     <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
     <script type="text/javascript" src="./lib/jquery_lite.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: 'Dosis', sans-serif;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul li {
+        cursor: pointer;
+        position: relative;
+        padding: 12px 8px 12px 40px;
+        list-style-type: none;
+        background-color: #eee;
+        font-size: 18px;
+        transition: 0.2s;
+      }
+
+      ul li:nth-child(odd) {
+        background-color: #ddd;
+      }
+
+      ul li.checked {
+        background-color: #888;
+        color: #fff;
+        text-decoration: line-through;
+      }
+
+      ul li.checked::before {
+        content: '';
+        position: absolute;
+        border-width: 0 1px 1px 0;
+        border-color: #fff;
+        border-style: solid;
+        top: 10px;
+        left: 16px;
+        transform: rotate(45deg);
+        height: 15px;
+        width: 7px;
+      }
+
+      .close {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 12px 16px 12px 16px;
+      }
+
+      .close:hover {
+        background-color: #F46036;
+        color: white;
+      }
+
+      .header {
+        background-color: #F46036;
+        padding: 30px 40px;
+        color: white;
+        text-align: center;
+      }
+
+      .header:after {
+        content: '';
+        display: table;
+        clear: both;
+      }
+
+      input {
+        background-color: #FAFF81;
+        width: 95%;
+        padding: 10px;
+        font-size: 16px;
+      }
+
+      .addBtn {
+        padding: 10px;
+        background-color: #3891A6;
+        color: #fff;
+        text-align: center;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .addBtn:hover {
+        background-color: #00AF66;
+      }
+    </style>
   </head>
   <body>
-    <h1>jQuery léger</h1>
-    <div class="">
-      A div container
-    </div>
-    <ul>
-      <li>unordered list item 1</li>
-      <li>unordered list item 2</li>
+    <h1 class='header'>Task Manager</h1>
+    <input type="text" id="input" placeholder="Task title...">
+    <span class="addBtn" onclick="addItem()">Add</span>
+
+    <ul id='list'>
     </ul>
-    <a href="www.google.com">Go to Google</a>
+
+    <script type="text/javascript">
+      function addItem() {
+        let li = document.createElement('li');
+        let input = document.getElementById('input').value;
+        let text = document.createTextNode(input);
+        li.appendChild(text);
+
+        if (input === '') {
+          alert('Task title cannot be empty');
+        } else {
+          document.getElementById('list').appendChild(li);
+        }
+        document.getElementById('input').value = '';
+
+        let span = document.createElement('span');
+        let closeX = document.createTextNode("\u00D7");
+        span.className = 'close';
+        span.appendChild(closeX);
+        li.appendChild(span);
+
+      let close = document.getElementsByClassName('close');
+      for (let i = 0; i < close.length; i++) {
+        close[i].onclick = function() {
+          let div = this.parentElement;
+          div.style.display = 'none';
+        }
+      }
+
+      let list = document.querySelector('ul');
+      list.addEventListener('click', function(e) {
+        if (e.target.tagName === 'LI') {
+          e.target.classList.toggle('checked');
+        }
+      }, false);
+    }
+
+    </script>
   </body>
 </html>
